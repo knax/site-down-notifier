@@ -111,8 +111,9 @@ function checkSites(notifyIfSuccess=false, checkChatId='') {
             if(checkChatId === chatId) {
               bot.telegram.sendMessage(chatId, `${site.site} is not ok (${res.status} - ${res.statusText})` );
             }
+          } else {
+            bot.telegram.sendMessage(chatId, `${site.site} is not ok (${res.status} - ${res.statusText})` );
           }
-          bot.telegram.sendMessage(chatId, `${site.site} is not ok (${res.status} - ${res.statusText})` );
         });
       } else {
         if(notifyIfSuccess) {
@@ -121,8 +122,9 @@ function checkSites(notifyIfSuccess=false, checkChatId='') {
               if(checkChatId === chatId) {
                 bot.telegram.sendMessage(chatId, `${site.site} is (${res.status} - ${res.statusText})` );
               }
+            } else {
+              bot.telegram.sendMessage(chatId, `${site.site} is (${res.status} - ${res.statusText})` );
             }
-            bot.telegram.sendMessage(chatId, `${site.site} is (${res.status} - ${res.statusText})` );
           });
         }
       }
