@@ -100,6 +100,7 @@ const config = new Config();
 function checkSites(notifyIfSuccess=false, checkChatId='') {
   config.sites.map(site => {
     fetch(site.site).then(res => {
+      console.log(`${site.site} is (${res.status} - ${res.statusText})`);
       config.update_log.unshift({
         site: site.site,
         updated_at: new Date(),
